@@ -141,27 +141,34 @@ class GifConverterApp(QMainWindow):
         # 创建主窗口部件
         main_widget = QWidget()
         main_layout = QVBoxLayout(main_widget)
+        main_layout.setContentsMargins(20, 20, 20, 20)
+        main_layout.setSpacing(15)
         
         # 创建标签
         title_label = QLabel("GIF转换器")
         title_label.setAlignment(Qt.AlignCenter)
-        title_label.setFont(QFont("Arial", 16, QFont.Bold))
+        title_label.setFont(QFont("Arial", 20, QFont.Bold))
         main_layout.addWidget(title_label)
         
         # 创建标签页
         tabs = QTabWidget()
+        tabs.setStyleSheet("QTabBar::tab { height: 30px; width: 120px; }")
         
         # 视频转GIF标签页
         video_tab = QWidget()
         video_layout = QVBoxLayout(video_tab)
+        video_layout.setContentsMargins(10, 10, 10, 10)
+        video_layout.setSpacing(10)
         
         # 视频选择部分
         video_file_group = QGroupBox("视频文件")
         video_file_layout = QFormLayout()
+        video_file_layout.setLabelAlignment(Qt.AlignLeft)
         
         self.video_path_edit = QLineEdit()
         self.video_path_edit.setReadOnly(True)
         self.video_browse_btn = QPushButton("浏览...")
+        self.video_browse_btn.setStyleSheet("padding: 5px;")
         self.video_browse_btn.clicked.connect(self.browse_video)
         
         video_path_layout = QHBoxLayout()
@@ -175,6 +182,7 @@ class GifConverterApp(QMainWindow):
         # 视频转换设置
         video_settings_group = QGroupBox("转换设置")
         video_settings_layout = QFormLayout()
+        video_settings_layout.setLabelAlignment(Qt.AlignLeft)
         
         self.video_fps_spin = QSpinBox()
         self.video_fps_spin.setRange(1, 30)
@@ -220,10 +228,12 @@ class GifConverterApp(QMainWindow):
         # 视频输出设置
         video_output_group = QGroupBox("输出设置")
         video_output_layout = QFormLayout()
+        video_output_layout.setLabelAlignment(Qt.AlignLeft)
         
         self.video_output_edit = QLineEdit()
         self.video_output_edit.setReadOnly(True)
         self.video_output_btn = QPushButton("浏览...")
+        self.video_output_btn.setStyleSheet("padding: 5px;")
         self.video_output_btn.clicked.connect(self.browse_video_output)
         
         video_output_path_layout = QHBoxLayout()
@@ -236,15 +246,19 @@ class GifConverterApp(QMainWindow):
         
         # 视频转换按钮和进度条
         self.video_progress = QProgressBar()
+        self.video_progress.setTextVisible(False)
         video_layout.addWidget(self.video_progress)
         
         self.video_convert_btn = QPushButton("开始转换")
+        self.video_convert_btn.setStyleSheet("padding: 10px; font-size: 16px;")
         self.video_convert_btn.clicked.connect(self.convert_video_to_gif)
         video_layout.addWidget(self.video_convert_btn)
         
         # 图片转GIF标签页
         image_tab = QWidget()
         image_layout = QVBoxLayout(image_tab)
+        image_layout.setContentsMargins(10, 10, 10, 10)
+        image_layout.setSpacing(10)
         
         # 图片选择部分
         image_file_group = QGroupBox("图片文件")
@@ -253,9 +267,11 @@ class GifConverterApp(QMainWindow):
         self.image_dir_edit = QLineEdit()
         self.image_dir_edit.setReadOnly(True)
         self.image_dir_btn = QPushButton("选择文件夹...")
+        self.image_dir_btn.setStyleSheet("padding: 5px;")
         self.image_dir_btn.clicked.connect(self.browse_image_dir)
         
         self.image_files_btn = QPushButton("选择多个文件...")
+        self.image_files_btn.setStyleSheet("padding: 5px;")
         self.image_files_btn.clicked.connect(self.browse_image_files)
         
         image_path_layout = QHBoxLayout()
@@ -274,6 +290,7 @@ class GifConverterApp(QMainWindow):
         # 图片转换设置
         image_settings_group = QGroupBox("转换设置")
         image_settings_layout = QFormLayout()
+        image_settings_layout.setLabelAlignment(Qt.AlignLeft)
         
         self.image_duration_spin = QSpinBox()
         self.image_duration_spin.setRange(50, 5000)
@@ -320,10 +337,12 @@ class GifConverterApp(QMainWindow):
         # 图片输出设置
         image_output_group = QGroupBox("输出设置")
         image_output_layout = QFormLayout()
+        image_output_layout.setLabelAlignment(Qt.AlignLeft)
         
         self.image_output_edit = QLineEdit()
         self.image_output_edit.setReadOnly(True)
         self.image_output_btn = QPushButton("浏览...")
+        self.image_output_btn.setStyleSheet("padding: 5px;")
         self.image_output_btn.clicked.connect(self.browse_image_output)
         
         image_output_path_layout = QHBoxLayout()
@@ -336,9 +355,11 @@ class GifConverterApp(QMainWindow):
         
         # 图片转换按钮和进度条
         self.image_progress = QProgressBar()
+        self.image_progress.setTextVisible(False)
         image_layout.addWidget(self.image_progress)
         
         self.image_convert_btn = QPushButton("开始转换")
+        self.image_convert_btn.setStyleSheet("padding: 10px; font-size: 16px;")
         self.image_convert_btn.clicked.connect(self.convert_images_to_gif)
         image_layout.addWidget(self.image_convert_btn)
         
