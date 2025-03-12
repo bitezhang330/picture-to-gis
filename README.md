@@ -1,3 +1,8 @@
+## Languages 🌐
+
+- [English](en/README.md)
+- [中文](zh/README.md)
+
 # GIF Converter 🎥➡️🖼️
 
 A user-friendly tool for converting videos and images into GIF animations. Supports multiple languages and offers a fun, intuitive interface.
@@ -64,7 +69,3 @@ A: The program uses natural sorting. Ensure image filenames are consistent (e.g.
 
 MIT
 
-## Languages 🌐
-
-- [English](en/README.md)
-- [中文](zh/README.md) 
